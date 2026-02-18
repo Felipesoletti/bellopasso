@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bello Passo Calçados e Acessórios</title>
+  <meta name="description" content="Bello Passo Calçados e Acessórios - Loja de calçados e acessórios. Confira nossos produtos e atendimento." />
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(16,185,129,.12), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    /* Layout */
+    .container{
+      width:min(980px, 92vw);
+      margin: 48px auto 64px;
+    }
+
+    /* Topbar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.55);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      width:min(980px, 92vw);
+      margin: 0 auto;
+      padding: 12px 0;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brand strong{font-size: 1rem}
+    .brand span{color: var(--muted); font-size:.85rem}
+    .nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      color: var(--text);
+      font-size: .92rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      border-color: rgba(229,231,235,.20);
+      background: rgba(255,255,255,.03);
+    }
+
+    /* Sections */
+    .hero{
+      padding: 28px 0 8px;
+    }
+    .kicker{
+      color: var(--muted);
+      margin:0 0 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .85rem;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      line-height:1.15;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .card{
+      background: rgba(17,24,39,.85);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin: 14px 0;
+      backdrop-filter: blur(10px);
+    }
+    h2{margin:0 0 10px; font-size: 1.25rem}
+    h3{margin: 0 0 8px; font-size: 1.05rem}
+
+    .note{
+      margin-top: 14px;
+      padding: 14px 14px 10px;
+      border: 1px dashed rgba(96,165,250,.35);
+      border-radius: 14px;
+      background: rgba(96,165,250,.06);
+    }
+
+    ul{margin: 10px 0 0 18px}
+    li{margin: 6px 0}
+
+    .checklist{
+      list-style: none;
+      padding-left:0;
+      margin-left:0;
+    }
+    .checklist li{padding-left:0}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .grid > div{
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+
+    .muted{color: var(--muted)}
+    .cta{
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+      background: rgba(96,165,250,.06);
+      border-radius: 12px;
+    }
+
+    .footer{
+      margin-top: 16px;
+      padding: 18px 0 0;
+    }
+    .footerbar{
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display:flex;
+      gap: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .links a{
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(229,231,235,.25);
+    }
+    .links a:hover{border-bottom-color: rgba(229,231,235,.7)}
+    .sep{color: var(--muted); margin: 0 6px}
+
+    /* Simple anchor offset for sticky header */
+    section{scroll-margin-top: 80px}
+
+    /* Button style */
+    .btn{
+      display:inline-block;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(229,231,235,.18);
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+    .btn:hover{
+      border-color: rgba(229,231,235,.35);
+      background: rgba(255,255,255,.06);
+    }
+
+    @media (max-width: 720px){
+      .grid{grid-template-columns: 1fr}
+      .topbar-inner{flex-direction: column; align-items:flex-start}
+      .nav{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <strong>Bello Passo</strong>
+        <span>Calçados e Acessórios</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#inicio">Início</a>
+        <a href="#loja">Loja</a>
+        <a href="#missao">Missão</a>
+        <a href="#empresa">Empresa</a>
+        <a href="#registro">Registro</a>
+        <a href="#contato">Contato</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#termos">Termos</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="hero">
+      <p class="kicker">CNPJ 08.635.589/0001-06</p>
+      <h1>Bello Passo Calçados e Acessórios</h1>
+      <p class="subtitle">Calçados, acessórios e atendimento para o dia a dia</p>
+
+      <a class="btn" href="#contato">Falar com a loja</a>
+    </section>
+
+    <!-- LOJA -->
+    <section id="loja" class="card">
+      <h2>Conheça Nossa Loja</h2>
+      <p>
+        A Bello Passo Calçados e Acessórios atua no varejo com foco em variedade, praticidade e uma experiência de compra simples.
+        Nosso objetivo é ajudar você a escolher o calçado e o acessório certo para cada momento, com bom gosto e conforto.
+      </p>
+    </section>
+
+    <!-- MISSÃO -->
+    <section id="missao" class="card">
+      <h2>Nossa Missão</h2>
+      <p>
+        Oferecer calçados e acessórios com curadoria, qualidade e excelente atendimento, ajudando nossos clientes a se sentirem bem,
+        confiantes e prontos para o dia a dia.
+      </p>
+
+      <div class="note">
+        <h3>Por que essa missão funciona:</h3>
+        <ul>
+          <li><strong>Curadoria e qualidade</strong>: facilita a escolha e melhora a experiência.</li>
+          <li><strong>Atendimento</strong>: aproxima a loja do cliente e aumenta a confiança.</li>
+          <li><strong>Dia a dia</strong>: comunica praticidade e utilidade real.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EMPRESA -->
+    <section id="empresa" class="card">
+      <h2>Sobre a Empresa</h2>
+      <p>
+        A empresa <strong>J L M Barroso</strong>, nome fantasia <strong>Bello Passo Calçados e Acessórios</strong>,
+        está ativa desde <strong>09/02/2007</strong>, com porte de <strong>Micro Empresa</strong>.
+        É optante do <strong>Simples Nacional</strong> desde <strong>01/07/2007</strong>.
+      </p>
+
+      <h2>Serviços e Experiência</h2>
+      <ul class="checklist">
+        <li>✔ Vendas de calçados - opções para diferentes estilos e ocasiões</li>
+        <li>✔ Acessórios - complementos para o seu look</li>
+        <li>✔ Ajuda na escolha - numeração, ajuste e conforto</li>
+        <li>✔ Trocas conforme política da loja - transparência e segurança</li>
+      </ul>
+
+      <p class="muted" style="margin-top:10px">
+        Dica: se você me passar as categorias que mais vendem, eu adapto essa lista para ficar 100% fiel à realidade da Bello Passo.
+      </p>
+    </section>
+
+    <!-- REGISTRO -->
+    <section id="registro" class="card">
+      <h2>Informações de Registro</h2>
+      <div class="grid">
+        <div><strong>Razão Social:</strong><br/>J L M Barroso</div>
+        <div><strong>Nome Fantasia:</strong><br/>Bello Passo Calçados e Acessórios</div>
+        <div><strong>CNPJ:</strong><br/>08.635.589/0001-06</div>
+        <div><strong>Data de Abertura:</strong><br/>09/02/2007</div>
+        <div><strong>Porte:</strong><br/>Micro Empresa</div>
+        <div><strong>Natureza Jurídica:</strong><br/>Empresário (Individual)</div>
+        <div><strong>Opção pelo MEI:</strong><br/>Não</div>
+        <div><strong>Opção pelo Simples:</strong><br/>Sim (desde 01/07/2007)</div>
+        <div><strong>Capital Social:</strong><br/>R$ 42.000,00</div>
+        <div><strong>Tipo:</strong><br/>Matriz</div>
+        <div><strong>Situação:</strong><br/>Ativa (desde 09/02/2007)</div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="card">
+      <h2>Localização e Contato</h2>
+      <p><strong>Endereço:</strong> [PREENCHER]</p>
+      <p><strong>Telefone/WhatsApp:</strong> [PREENCHER]</p>
+      <p><strong>E-mail:</strong> [PREENCHER]</p>
+
+      <p class="cta">
+        Na Bello Passo, vamos te ajudar a escolher o calçado ideal. Fale com a gente e tire suas dúvidas.
+      </p>
+    </section>
+
+    <!-- PRIVACIDADE (no mesmo arquivo) -->
+    <section id="privacidade" class="card">
+      <h2>Política de Privacidade</h2>
+      <p class="muted">Versão informativa. Se quiser, ajuste com seu jurídico.</p>
+
+      <h3>Coleta de dados</h3>
+      <p>Podemos coletar dados enviados por você ao entrar em contato (ex.: nome, telefone e mensagem).</p>
+
+      <h3>Uso de dados</h3>
+      <p>Usamos os dados para responder solicitações, atendimento e comunicação comercial quando aplicável.</p>
+
+      <h3>Compartilhamento</h3>
+      <p>Não vendemos dados. Podemos compartilhar apenas quando necessário para atendimento, obrigações legais ou provedores de serviço.</p>
+
+      <h3>Contato</h3>
+      <p>Para dúvidas sobre privacidade, fale com a gente: <strong>[PREENCHER E-MAIL]</strong>.</p>
+
+      <a class="btn" href="#inicio">Voltar ao topo</a>
+    </section>
+
+    <!-- TERMOS (no mesmo arquivo) -->
+    <section id="termos" class="card">
+      <h2>Termo de Uso</h2>
+      <p class="muted">Versão informativa. Se quiser, ajuste com seu jurídico.</p>
+
+      <h3>Conteúdo</h3>
+      <p>O conteúdo deste site é informativo e pode ser atualizado sem aviso.</p>
+
+      <h3>Responsabilidade</h3>
+      <p>Não garantimos resultados específicos. Cada caso depende de fatores externos e decisões do usuário.</p>
+
+      <h3>Marcas e plataformas</h3>
+      <p>Este site não possui relação institucional com Facebook, Instagram, WhatsApp ou Facebook Messenger.</p>
+
+      <a class="btn" href="#inicio">Voltar ao topo</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p class="muted">
+        Bello Passo Calçados e Acessórios (J L M Barroso) - CNPJ 08.635.589/0001-06 - não possui relação institucional com Facebook, Instagram, WhatsApp ou Facebook Messenger.
+      </p>
+      <p class="muted">
+        As informações deste site têm caráter informativo. Nenhum conteúdo constitui promessa de resultados.
+      </p>
+
+      <div class="footerbar">
+        <p>Copyright © <span id="year"></span> | Bello Passo Calçados e Acessórios | Todos os Direitos Reservados.</p>
+        <p class="links">
+          <a href="#privacidade">Política de Privacidade</a>
+          <span class="sep">|</span>
+          <a href="#termos">Termo de Uso</a>
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
